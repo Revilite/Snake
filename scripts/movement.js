@@ -8,9 +8,6 @@ let rightInterval;
 
 //Moving the snake up
 const moveUp = () => {
-  clearInterval(downInterval)
-  clearInterval(leftInterval)
-  clearInterval(rightInterval)
   //9 X 9 gameboard
   if (total == 81) {
     if (activeCell - 9 < 0) {
@@ -62,7 +59,23 @@ const moveUp = () => {
 
 
 const moveDown = () => {
-  console.log("down");
+  clearInterval(upInterval)
+  clearInterval(leftInterval)
+  clearInterval(rightInterval)
+  if (total == 81) {
+    if (activeCell + 9 > total){
+      board.children[activeCell].setAttribute("style", "background-color: #343536; color: #343536")
+      activeCell = parseInt((9 * 9) / 2)
+      board.children[activeCell].setAttribute("style", "background-color: red; color: red")
+      clearInterval(upInterval)
+    }
+    else{
+      board.children[activeCell].setAttribute("style", "background-color: #343536; color: #343536")
+
+      activeCell += 9;
+      board.children[activeCell].setAttribute("style", "background-color: red; color: red")
+    }
+  }
 }
 
 const moveLeft = () => {
@@ -75,8 +88,13 @@ const moveRight = () => {
 
 
 const movement = (direction) => {
-
+  clearInterval(upInterval);
+  clearInterval(downInterval);
+  clearInterval(leftInterval);
+  clearInterval(rightInterval);
+  
   if (direction == "ArrowUp" || direction == "w") {
+ 
     upInterval = setInterval(moveUp, 300)
   }
   else if (direction == "ArrowDown" || direction == "s") {
