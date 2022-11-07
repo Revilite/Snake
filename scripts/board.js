@@ -18,7 +18,7 @@ const makeGrid = (rows, cols) => {
     const centerInt = parseInt(centerFlaot) + 1;
 
     if (cell.innerText == centerInt) {
-      cell.classList.add("active")
+      cell.classList.add("head")
     }
 
   }

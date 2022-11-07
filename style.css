@@ -20,9 +20,17 @@ html {
   color: cyan;
 }
 
-.active {
+.head {
   background-color: red;
   color: red
+}
+.food {
+  background-color: darkred;
+  color: darkred;
+}
+
+.tail { 
+  background-color: greenyellow;
 }
 
 #gameBoard {
