@@ -1,4 +1,6 @@
 const board = document.querySelector("#gameBoard");
+let activeCell = parseInt((9 * 9) / 2);
+let total;
 
 //Dynamic creation of game board
 
@@ -11,7 +13,7 @@ const makeGrid = (rows, cols) => {
     cell.innerText = (i + 1);
     board.appendChild(cell).className = "cell";
 
-    const total = rows * cols;
+    total = rows * cols;
     const centerFlaot = total / 2;
     const centerInt = parseInt(centerFlaot) + 1;
 
@@ -36,6 +38,18 @@ const clearGrid = () => {
     board.removeChild(cell)
   }
 }
+
+document.querySelector("#buttons").addEventListener("click", (e) => {
+  if (e.target == "grid9") {
+    activeCell = parseInt((9 * 9) / 2);
+  }
+  else if (e.target.id == "grid15") {
+    activeCell = parseInt((15 * 15) / 2);
+  }
+  else if (e.target.id == "grid21") {
+    activeCell = parseInt((21 * 21) / 2);
+  }
+})
 
 makeGrid(9, 9)
 

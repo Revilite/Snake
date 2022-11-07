@@ -1,6 +1,5 @@
 //Board declared in board.js
 const all = document.querySelector("body");
-let activeCell = document.querySelector(".cell");
 
 let upInterval;
 let downInterval;
@@ -9,7 +8,34 @@ let rightInterval;
 
 
 const moveUp = () => {
-console.log(cell);  
+
+  if (total == 81) {
+    
+    if (activeCell - 9 < 0){
+      board.children[activeCell].setAttribute("style", "background-color: #343536; color: #343536")
+      activeCell = 40
+      board.children[activeCell].setAttribute("style", "background-color: red; color: red")
+      clearInterval(upInterval)
+    }
+    else{
+    board.children[activeCell].setAttribute("style", "background-color: #343536; color: #343536")
+
+    activeCell -= 9;
+    board.children[activeCell].setAttribute("style", "background-color: red; color: red")
+    }
+  }
+  else if (total == 225) {
+    board.children[activeCell].setAttribute("style", "background-color: #343536; color: #343536");
+
+    activeCell -= 15;
+    board.children[activeCell].setAttribute("style", "background-color: red; color: red")
+  }
+  else if (total == 441) {
+    board.children[activeCell].setAttribute("style", "background-color: #343536; color: #343536");
+
+    activeCell -= 21;
+    board.children[activeCell].setAttribute("style", "background-color: red; color: red")
+  }
 }
 
 const moveDown = () => {
@@ -39,7 +65,7 @@ const movement = (direction) => {
   else if (direction == "ArrowRight" || direction == "d") {
     rightInterval = setInterval(moveRight, 300)
   }
-  else if (direction == "Enter"){
+  else if (direction == "Enter") {
     clearInterval(upInterval);
     clearInterval(downInterval);
     clearInterval(leftInterval);
