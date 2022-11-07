@@ -15,9 +15,14 @@ html {
   color: #343536;
 }
 
-.cell:hover{
+.cell:hover {
   background-color: cyan;
   color: cyan;
+}
+
+.active {
+  background-color: red;
+  color: red
 }
 
 #gameBoard {

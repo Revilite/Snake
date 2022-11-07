@@ -18,8 +18,7 @@ const makeGrid = (rows, cols) => {
     const centerInt = parseInt(centerFlaot) + 1;
 
     if (cell.innerText == centerInt) {
-      cell.style.setProperty("background-color", "red");
-      cell.style.setProperty("color", "red");
+      cell.classList.add("active")
     }
 
   }
