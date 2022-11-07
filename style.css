@@ -1,0 +1,27 @@
+:root {
+  --grid-cols: 20;
+  --grid-rows: 20;
+}
+
+body,
+html {
+  background-color: #121314
+}
+
+.cell {
+  border: 1px solid black;
+  text-align: center;
+}
+
+
+#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  margin: auto;
+  margin-top: 10vh;
+  width: 650px;
+  height: 650px;
+  background-color: #343536;
+  color: white;
+}
