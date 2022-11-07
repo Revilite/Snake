@@ -49,11 +49,11 @@ const moveUp = () => {
       board.children[activeCell].classList.add("active")
       clearInterval(upInterval)
     }
-    else{
-    board.children[activeCell].classList.remove("active");
+    else {
+      board.children[activeCell].classList.remove("active");
 
-    activeCell -= 21;
-    board.children[activeCell].classList.add("active")
+      activeCell -= 21;
+      board.children[activeCell].classList.add("active")
     }
   }
 }
@@ -61,9 +61,6 @@ const moveUp = () => {
 
 
 const moveDown = () => {
-  clearInterval(upInterval)
-  clearInterval(leftInterval)
-  clearInterval(rightInterval)
   if (total == 81) {
     if (activeCell + 9 > total) {
       board.children[activeCell].classList.remove("active")
@@ -91,14 +88,14 @@ const moveDown = () => {
       board.children[activeCell].classList.add("active")
     }
   }
-  else if (total == 441){
-    if (activeCell + 21 > total){
+  else if (total == 441) {
+    if (activeCell + 21 > total) {
       board.children[activeCell].classList.remove("active");
       activeCell = parseInt((21 * 21) / 2);
       board.children[activeCell].classList.add("active")
       clearInterval(downInterval)
     }
-    else{
+    else {
       board.children[activeCell].classList.remove("active");
 
       activeCell += 21;
@@ -108,11 +105,93 @@ const moveDown = () => {
 }
 
 const moveLeft = () => {
-  console.log("left");
+  if (total == 81) {
+    if (activeCell % 9 == 0) {
+      board.children[activeCell].classList.remove("active");
+      activeCell = parseInt((9 * 9) / 2);
+      board.children[activeCell].classList.add("active");
+      clearInterval(leftInterval);
+    }
+    else {
+      board.children[activeCell].classList.remove("active");
+
+      activeCell -= 1;
+      board.children[activeCell].classList.add("active");
+    }
+  }
+  else if (total == 225) {
+    if (activeCell % 15 == 0) {
+      board.children[activeCell].classList.remove("active");
+      activeCell = parseInt((15 * 15) / 2);
+      board.children[activeCell].classList.add("active");
+      clearInterval(leftInterval);
+    }
+    else {
+      board.children[activeCell].classList.remove("active");
+
+      activeCell -= 1;
+      board.children[activeCell].classList.add("active");
+    }
+  }
+
+  else if (total == 441) {
+    if (activeCell % 21 == 0) {
+      board.children[activeCell].classList.remove("active");
+      activeCell = parseInt((21 * 21) / 2);
+      board.children[activeCell].classList.add("active");
+      clearInterval(leftInterval);
+    }
+    else {
+      board.children[activeCell].classList.remove("active");
+
+      activeCell -= 1;
+      board.children[activeCell].classList.add("active");
+    }
+  }
 }
 
 const moveRight = () => {
-  console.log("right");
+  if (total == 81) {
+    if (activeCell % 9 == 8) {
+      board.children[activeCell].classList.remove("active");
+      activeCell = parseInt((9 * 9) / 2);
+      board.children[activeCell].classList.add("active");
+      clearInterval(rightInterval);
+    }
+    else {
+      board.children[activeCell].classList.remove("active");
+
+      activeCell += 1;
+      board.children[activeCell].classList.add("active");
+    }
+  }
+  else if (total == 225) {
+    if (activeCell % 15 == 14) {
+      board.children[activeCell].classList.remove("active");
+      activeCell = parseInt((15 * 15) / 2);
+      board.children[activeCell].classList.add("active");
+      clearInterval(rightInterval);
+    }
+    else {
+      board.children[activeCell].classList.remove("active");
+
+      activeCell += 1;
+      board.children[activeCell].classList.add("active");
+    }
+  }
+  else if (total == 441){
+    if (activeCell % 21 == 20){
+      board.children[activeCell].classList.remove("active");
+      activeCell = parseInt((21 * 21) / 2);
+      board.children[activeCell].classList.add("active");
+      clearInterval(rightInterval);
+    }
+
+    board.children[activeCell].classList.remove("active");
+    
+    activeCell += 1;
+    board.children[activeCell].classList.add("active");
+  }
 }
 
 
