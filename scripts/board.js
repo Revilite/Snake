@@ -8,7 +8,7 @@ const makeGrid = (rows, cols) => {
 
   for (let i = 0; i < (rows * cols); i++){
     let cell = document.createElement("div");
-    // cell.innerText = (i + 1);
+    cell.innerText = (i + 1);
     board.appendChild(cell).className = "cell";
   }  
 }
@@ -17,7 +17,6 @@ const hightlight = (e) => {
   e.preventDefault();
   const cell = e.target
   console.log(cell);
-
   cell.style.setProperty("background-color", "red");
 
 }
@@ -26,5 +25,5 @@ const hightlight = (e) => {
 
 makeGrid(20, 20)
 
-board.addEventListener("click", hightlight)
+// board.addEventListener("click", hightlight)
 
