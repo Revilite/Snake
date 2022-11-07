@@ -16,8 +16,8 @@ html {
 }
 
 .cell:hover{
-  background-color: red;
-  color: red;
+  background-color: cyan;
+  color: cyan;
 }
 
 #gameBoard {
@@ -30,4 +30,10 @@ html {
   height: 650px;
   background-color: #343536;
   color: white;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  padding: 14px;
 }

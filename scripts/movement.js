@@ -1,14 +1,15 @@
-// const board = document.querySelector("#gameBoard");
-
+//Board declared in board.js
 const all = document.querySelector("body");
+let activeCell = document.querySelector(".cell");
 
 let upInterval;
 let downInterval;
 let leftInterval;
 let rightInterval;
 
+
 const moveUp = () => {
-  console.log("up");
+console.log(cell);  
 }
 
 const moveDown = () => {
@@ -39,7 +40,13 @@ const movement = (direction) => {
     rightInterval = setInterval(moveRight, 300)
   }
   else if (direction == "Enter"){
-    clearInterval(upInterval, downInterval, leftInterval, rightInterval)
+    clearInterval(upInterval);
+    clearInterval(downInterval);
+    clearInterval(leftInterval);
+    clearInterval(rightInterval);
+
+    console.log(direction);
+
   }
 
 }
