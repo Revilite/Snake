@@ -1,6 +1,7 @@
 //Board declared in board.js
 const all = document.querySelector("body");
-
+let tail = [];
+let tailLength = 3;
 // add tail to array then dynamically change
 
 let upInterval;
@@ -14,6 +15,14 @@ const moveUp = () => {
   if (total == 81) {
     if (activeCell - 9 < 0) {
       //side of board detection
+
+
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((9 * 9) / 2)
       board.children[activeCell].classList.add("head")
@@ -24,13 +33,26 @@ const moveUp = () => {
     }
     else {
       //movement
+
+
       board.children[activeCell].classList.remove("head")
       activeCell -= 9;
       board.children[activeCell].classList.add("head")
 
 
+      tail.push(activeCell + 9);
+
+      for (let i = 0; i < tail.length; i++) {
+        board.children[tail[i]].classList.add("tail")
+        if (tail.length >= tailLength) {
+          let tailEnd = tail.shift();
+          board.children[tailEnd].classList.remove("tail")
+        }
+      }
+
+
       //food detection
-      if(board.children[activeCell].classList.value == "cell food head"){
+      if (board.children[activeCell].classList.value == "cell food head") {
         board.children[activeCell].classList.remove("food");
         eatenFood();
       }
@@ -40,6 +62,14 @@ const moveUp = () => {
   // 15 X 15 gameboard
   else if (total == 225) {
     if (activeCell - 15 < 0) {
+
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
+
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((15 * 15) / 2)
       board.children[activeCell].classList.add("head")
@@ -53,10 +83,21 @@ const moveUp = () => {
     activeCell -= 15;
     board.children[activeCell].classList.add("head")
 
-    if(board.children[activeCell].classList.value == "cell food head"){
+    if (board.children[activeCell].classList.value == "cell food head") {
       board.children[activeCell].classList.remove("food");
       eatenFood();
     }
+
+    tail.push(activeCell + 15);
+
+    for (let i = 0; i < tail.length; i++) {
+      board.children[tail[i]].classList.add("tail")
+      if (tail.length >= tailLength) {
+        let tailEnd = tail.shift();
+        board.children[tailEnd].classList.remove("tail")
+      }
+    }
+
   }
 
   //21 X 21 gameboard
@@ -65,6 +106,14 @@ const moveUp = () => {
   else if (total == 441) {
 
     if (activeCell - 21 < 0) {
+
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
+
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((21 * 21) / 2)
       board.children[activeCell].classList.add("head")
@@ -79,10 +128,21 @@ const moveUp = () => {
       activeCell -= 21;
       board.children[activeCell].classList.add("head")
 
-      if(board.children[activeCell].classList.value == "cell food head"){
+      if (board.children[activeCell].classList.value == "cell food head") {
         board.children[activeCell].classList.remove("food");
         eatenFood();
       }
+
+      tail.push(activeCell + 21);
+
+      for (let i = 0; i < tail.length; i++) {
+        board.children[tail[i]].classList.add("tail")
+        if (tail.length >= tailLength) {
+          let tailEnd = tail.shift();
+          board.children[tailEnd].classList.remove("tail")
+        }
+      }
+
     }
   }
 }
@@ -92,6 +152,14 @@ const moveUp = () => {
 const moveDown = () => {
   if (total == 81) {
     if (activeCell + 9 > total) {
+
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
+
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((9 * 9) / 2)
       board.children[activeCell].classList.add("head")
@@ -106,14 +174,32 @@ const moveDown = () => {
       activeCell += 9;
       board.children[activeCell].classList.add("head")
 
-      if(board.children[activeCell].classList.value == "cell food head"){
+      if (board.children[activeCell].classList.value == "cell food head") {
         board.children[activeCell].classList.remove("food");
         eatenFood();
       }
+
+      tail.push(activeCell - 9);
+
+      for (let i = 0; i < tail.length; i++) {
+        board.children[tail[i]].classList.add("tail")
+        if (tail.length >= tailLength) {
+          let tailEnd = tail.shift();
+          board.children[tailEnd].classList.remove("tail")
+        }
+      }
+
     };
   }
   else if (total == 225) {
     if (activeCell + 15 > total) {
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
+
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((15 * 15) / 2);
       board.children[activeCell].classList.add("head")
@@ -127,14 +213,32 @@ const moveDown = () => {
       activeCell += 15;
       board.children[activeCell].classList.add("head")
 
-      if(board.children[activeCell].classList.value == "cell food head"){
+      if (board.children[activeCell].classList.value == "cell food head") {
         board.children[activeCell].classList.remove("food");
         eatenFood();
       }
+
+      tail.push(activeCell - 15);
+
+      for (let i = 0; i < tail.length; i++) {
+        board.children[tail[i]].classList.add("tail")
+        if (tail.length >= tailLength) {
+          let tailEnd = tail.shift();
+          board.children[tailEnd].classList.remove("tail")
+        }
+      }
     }
+
   }
   else if (total == 441) {
     if (activeCell + 21 > total) {
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
+
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((21 * 21) / 2);
       board.children[activeCell].classList.add("head")
@@ -149,9 +253,19 @@ const moveDown = () => {
       activeCell += 21;
       board.children[activeCell].classList.add("head");
 
-      if(board.children[activeCell].classList.value == "cell food head"){
+      if (board.children[activeCell].classList.value == "cell food head") {
         board.children[activeCell].classList.remove("food");
         eatenFood();
+      }
+
+      tail.push(activeCell - 21);
+
+      for (let i = 0; i < tail.length; i++) {
+        board.children[tail[i]].classList.add("tail")
+        if (tail.length >= tailLength) {
+          let tailEnd = tail.shift();
+          board.children[tailEnd].classList.remove("tail")
+        }
       }
     }
   }
@@ -160,6 +274,13 @@ const moveDown = () => {
 const moveLeft = () => {
   if (total == 81) {
     if (activeCell % 9 == 0) {
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
+
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((9 * 9) / 2);
       board.children[activeCell].classList.add("head");
@@ -174,14 +295,31 @@ const moveLeft = () => {
       activeCell -= 1;
       board.children[activeCell].classList.add("head");
 
-      if(board.children[activeCell].classList.value == "cell food head"){
+      if (board.children[activeCell].classList.value == "cell food head") {
         board.children[activeCell].classList.remove("food");
         eatenFood();
+      }
+
+      tail.push(activeCell + 1);
+
+      for (let i = 0; i < tail.length; i++) {
+        board.children[tail[i]].classList.add("tail")
+        if (tail.length >= tailLength) {
+          let tailEnd = tail.shift();
+          board.children[tailEnd].classList.remove("tail")
+        }
       }
     }
   }
   else if (total == 225) {
     if (activeCell % 15 == 0) {
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
+
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((15 * 15) / 2);
       board.children[activeCell].classList.add("head");
@@ -196,15 +334,33 @@ const moveLeft = () => {
       activeCell -= 1;
       board.children[activeCell].classList.add("head");
 
-      if(board.children[activeCell].classList.value == "cell food head"){
+      if (board.children[activeCell].classList.value == "cell food head") {
         board.children[activeCell].classList.remove("food");
         eatenFood();
       }
     }
+
+    tail.push(activeCell + 1);
+
+    for (let i = 0; i < tail.length; i++) {
+      board.children[tail[i]].classList.add("tail")
+      if (tail.length >= tailLength) {
+        let tailEnd = tail.shift();
+        board.children[tailEnd].classList.remove("tail")
+      }
+    };
+
   }
 
   else if (total == 441) {
     if (activeCell % 21 == 0) {
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
+
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((21 * 21) / 2);
       board.children[activeCell].classList.add("head");
@@ -219,17 +375,34 @@ const moveLeft = () => {
       activeCell -= 1;
       board.children[activeCell].classList.add("head");
 
-      if(board.children[activeCell].classList.value == "cell food head"){
+      if (board.children[activeCell].classList.value == "cell food head") {
         board.children[activeCell].classList.remove("food");
         eatenFood();
       }
     }
+    tail.push(activeCell + 1);
+
+    for (let i = 0; i < tail.length; i++) {
+      board.children[tail[i]].classList.add("tail")
+      if (tail.length >= tailLength) {
+        let tailEnd = tail.shift();
+        board.children[tailEnd].classList.remove("tail")
+      }
+    };
+
   }
 }
 
 const moveRight = () => {
   if (total == 81) {
     if (activeCell % 9 == 8) {
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
+
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((9 * 9) / 2);
       board.children[activeCell].classList.add("head");
@@ -244,14 +417,32 @@ const moveRight = () => {
       activeCell += 1;
       board.children[activeCell].classList.add("head");
 
-      if(board.children[activeCell].classList.value == "cell food head"){
+      if (board.children[activeCell].classList.value == "cell food head") {
         board.children[activeCell].classList.remove("food");
         eatenFood();
       }
+
+      tail.push(activeCell - 1);
+
+      for (let i = 0; i < tail.length; i++) {
+        board.children[tail[i]].classList.add("tail")
+        if (tail.length >= tailLength) {
+          let tailEnd = tail.shift();
+          board.children[tailEnd].classList.remove("tail")
+        }
+      };
+
     }
   }
   else if (total == 225) {
     if (activeCell % 15 == 14) {
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
+
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((15 * 15) / 2);
       board.children[activeCell].classList.add("head");
@@ -266,14 +457,32 @@ const moveRight = () => {
       activeCell += 1;
       board.children[activeCell].classList.add("head");
 
-      if(board.children[activeCell].classList.value == "cell food head"){
+      if (board.children[activeCell].classList.value == "cell food head") {
         board.children[activeCell].classList.remove("food");
         eatenFood();
       }
+
+      tail.push(activeCell - 1);
+
+      for (let i = 0; i < tail.length; i++) {
+        board.children[tail[i]].classList.add("tail")
+        if (tail.length >= tailLength) {
+          let tailEnd = tail.shift();
+          board.children[tailEnd].classList.remove("tail")
+        }
+      };
+
     }
   }
-  else if (total == 441){
-    if (activeCell % 21 == 20){
+  else if (total == 441) {
+    if (activeCell % 21 == 20) {
+      for (let i = 0; i < total; i++) {
+        board.children[i].classList.remove("tail")
+      }
+      for (let i = 0; i <= tail.length; i++) {
+        tail.pop();
+      }
+
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((21 * 21) / 2);
       board.children[activeCell].classList.add("head");
@@ -284,14 +493,25 @@ const moveRight = () => {
     }
 
     board.children[activeCell].classList.remove("head");
-    
+
     activeCell += 1;
     board.children[activeCell].classList.add("head");
 
-       if(board.children[activeCell].classList.value == "cell food head"){
-        board.children[activeCell].classList.remove("food");
-        eatenFood();
+    if (board.children[activeCell].classList.value == "cell food head") {
+      board.children[activeCell].classList.remove("food");
+      eatenFood();
+    }
+
+    tail.push(activeCell - 1);
+
+    for (let i = 0; i < tail.length; i++) {
+      board.children[tail[i]].classList.add("tail")
+      if (tail.length >= tailLength) {
+        let tailEnd = tail.shift();
+        board.children[tailEnd].classList.remove("tail")
       }
+    };
+
   }
 }
 

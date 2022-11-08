@@ -30,7 +30,8 @@ html {
 }
 
 .tail { 
-  background-color: greenyellow;
+  background-color: green;
+  color: green;
 }
 
 #title {
