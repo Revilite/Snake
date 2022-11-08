@@ -20,9 +20,11 @@ const moveUp = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
+      tailLength = 3;
+      console.log(tail.length)
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((9 * 9) / 2)
       board.children[activeCell].classList.add("head")
@@ -66,10 +68,11 @@ const moveUp = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
-
+      tailLength = 3;
+      
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((15 * 15) / 2)
       board.children[activeCell].classList.add("head")
@@ -110,10 +113,10 @@ const moveUp = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
-
+      tailLength = 3;
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((21 * 21) / 2)
       board.children[activeCell].classList.add("head")
@@ -156,10 +159,10 @@ const moveDown = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
-
+      tailLength = 3;
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((9 * 9) / 2)
       board.children[activeCell].classList.add("head")
@@ -196,10 +199,10 @@ const moveDown = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
-
+      tailLength = 3;
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((15 * 15) / 2);
       board.children[activeCell].classList.add("head")
@@ -235,10 +238,10 @@ const moveDown = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
-
+      tailLength = 3;
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((21 * 21) / 2);
       board.children[activeCell].classList.add("head")
@@ -277,10 +280,10 @@ const moveLeft = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
-
+      tailLength = 3;
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((9 * 9) / 2);
       board.children[activeCell].classList.add("head");
@@ -316,10 +319,10 @@ const moveLeft = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
-
+      tailLength = 3;
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((15 * 15) / 2);
       board.children[activeCell].classList.add("head");
@@ -357,10 +360,10 @@ const moveLeft = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
-
+      tailLength = 3;
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((21 * 21) / 2);
       board.children[activeCell].classList.add("head");
@@ -399,10 +402,10 @@ const moveRight = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
-
+      tailLength = 3;
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((9 * 9) / 2);
       board.children[activeCell].classList.add("head");
@@ -439,10 +442,10 @@ const moveRight = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
-
+      tailLength = 3;
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((15 * 15) / 2);
       board.children[activeCell].classList.add("head");
@@ -479,10 +482,10 @@ const moveRight = () => {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
-      for (let i = 0; i <= tail.length; i++) {
+      for (let i = 0; i <= tailLength; i++) {
         tail.pop();
       }
-
+      tailLength = 3;
       board.children[activeCell].classList.remove("head");
       activeCell = parseInt((21 * 21) / 2);
       board.children[activeCell].classList.add("head");
