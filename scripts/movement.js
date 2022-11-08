@@ -19,6 +19,8 @@ const moveUp = () => {
       board.children[activeCell].classList.add("head")
       clearInterval(upInterval)
       spawnFood(3);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
     else {
       //movement
@@ -43,6 +45,8 @@ const moveUp = () => {
       board.children[activeCell].classList.add("head")
       clearInterval(upInterval)
       spawnFood(5);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
 
     board.children[activeCell].classList.remove("head");
@@ -66,6 +70,8 @@ const moveUp = () => {
       board.children[activeCell].classList.add("head")
       clearInterval(upInterval)
       spawnFood(7);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
     else {
       board.children[activeCell].classList.remove("head");
@@ -91,6 +97,8 @@ const moveDown = () => {
       board.children[activeCell].classList.add("head")
       clearInterval(downInterval)
       spawnFood(3);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
     else {
       board.children[activeCell].classList.remove("head")
@@ -111,6 +119,8 @@ const moveDown = () => {
       board.children[activeCell].classList.add("head")
       clearInterval(downInterval)
       spawnFood(5);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
     else {
       board.children[activeCell].classList.remove("head");
@@ -130,6 +140,8 @@ const moveDown = () => {
       board.children[activeCell].classList.add("head")
       clearInterval(downInterval)
       spawnFood(7);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
     else {
       board.children[activeCell].classList.remove("head");
@@ -153,6 +165,8 @@ const moveLeft = () => {
       board.children[activeCell].classList.add("head");
       clearInterval(leftInterval);
       spawnFood(3);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
     else {
       board.children[activeCell].classList.remove("head");
@@ -173,6 +187,8 @@ const moveLeft = () => {
       board.children[activeCell].classList.add("head");
       clearInterval(leftInterval);
       spawnFood(5);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
     else {
       board.children[activeCell].classList.remove("head");
@@ -194,6 +210,8 @@ const moveLeft = () => {
       board.children[activeCell].classList.add("head");
       clearInterval(leftInterval);
       spawnFood(7);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
     else {
       board.children[activeCell].classList.remove("head");
@@ -217,6 +235,8 @@ const moveRight = () => {
       board.children[activeCell].classList.add("head");
       clearInterval(rightInterval);
       spawnFood(3);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
     else {
       board.children[activeCell].classList.remove("head");
@@ -237,6 +257,8 @@ const moveRight = () => {
       board.children[activeCell].classList.add("head");
       clearInterval(rightInterval);
       spawnFood(5);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
     else {
       board.children[activeCell].classList.remove("head");
@@ -257,6 +279,8 @@ const moveRight = () => {
       board.children[activeCell].classList.add("head");
       clearInterval(rightInterval);
       spawnFood(7);
+      score = 0;
+      scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
     }
 
     board.children[activeCell].classList.remove("head");
