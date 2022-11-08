@@ -22,6 +22,10 @@ const moveUp = () => {
 
       activeCell -= 9;
       board.children[activeCell].classList.add("head")
+      //food detection
+      if(board.children[activeCell].classList.value == "cell food head"){
+        board.children[activeCell].classList.remove("food");
+      }
     }
   }
 
