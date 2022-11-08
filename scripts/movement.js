@@ -555,8 +555,10 @@ all.addEventListener("keydown", (e) => {
   movement(e.key)
 })
 
-board.addEventListener("pointermove", (e) => {
+board.addEventListener("touchmove", (e) => {
   //movement left
+
+  console.log(e.touches[0].clientx)
   if(e.movementX < 0){
     movement("a")
   }

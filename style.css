@@ -6,7 +6,6 @@
 body,
 html {
   background-color: #121314;
-  overflow: hidden;
 }
 
 .cell {
@@ -35,8 +34,19 @@ html {
   background-color: green;
   color: green;
 }
-
-
+#dKeys {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#dKeys div button {
+  border-radius: 15px;
+  padding: 25px;
+  font-size: 25px;
+  background-color: #343536;
+  color: white;
+}
 
 #title {
   display: flex;
@@ -100,8 +110,8 @@ html {
 
   #gameBoard {
     justify-content: center;
-    height: 35vh;
-    width: 35vh;
+    height: 50vh;
+    width: 50vh;
     margin: 0
   }
 
