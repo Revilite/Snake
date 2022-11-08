@@ -5,7 +5,8 @@
 
 body,
 html {
-  background-color: #121314
+  background-color: #121314;
+  overflow: hidden;
 }
 
 .cell {
@@ -24,12 +25,13 @@ html {
   background-color: red;
   color: red
 }
+
 .food {
   background-color: darkred;
   color: darkred;
 }
 
-.tail { 
+.tail {
   background-color: green;
   color: green;
 }
@@ -44,8 +46,8 @@ html {
   font-size: 42px;
 }
 
-#buttonTitle{
-  display:flex;
+#buttonTitle {
+  display: flex;
   justify-content: center;
   color: white;
   padding: 0px;
@@ -80,7 +82,7 @@ html {
   padding-left: 40px;
 }
 
-#buttons button{
+#buttons button {
   border-radius: 15px;
   padding: 25px;
   font-size: 25px;
@@ -88,4 +90,29 @@ html {
   color: white;
   margin-right: 16px;
   margin-left: 16px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  body {
+    width: 350px;
+  }
+
+  #gameBoard {
+    justify-content: center;
+    height: 35vh;
+    width: 35vh;
+    margin: 0
+  }
+
+  #buttons {
+    justify-content: center;
+    padding-left: 0px;
+    margin: 0px;
+  }
+
+  #buttons button {
+    padding: 14px;
+    font-size: 16px;
+  }
 }

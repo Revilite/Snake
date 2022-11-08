@@ -528,16 +528,16 @@ const movement = (direction) => {
 
   if (direction == "ArrowUp" || direction == "w") {
 
-    upInterval = setInterval(moveUp, 150)
+    upInterval = setInterval(moveUp, 100)
   }
   else if (direction == "ArrowDown" || direction == "s") {
-    downInterval = setInterval(moveDown, 150)
+    downInterval = setInterval(moveDown, 100)
   }
   else if (direction == "ArrowLeft" || direction == "a") {
-    leftInterval = setInterval(moveLeft, 150)
+    leftInterval = setInterval(moveLeft, 100)
   }
   else if (direction == "ArrowRight" || direction == "d") {
-    rightInterval = setInterval(moveRight, 150)
+    rightInterval = setInterval(moveRight, 100)
   }
   else if (direction == "Enter") {
     clearInterval(upInterval);
@@ -553,6 +553,22 @@ const movement = (direction) => {
 
 all.addEventListener("keydown", (e) => {
   movement(e.key)
+})
+
+board.addEventListener("pointermove", (e) => {
+  //movement left
+  if(e.movementX < 0){
+    movement("a")
+  }
+  else if(e.movementX > 0){
+    movement("d")
+  }
+  else if(e.movementY > 0){
+    movement("s")
+  }
+  else if(e.movementY < 0) {
+    movement("w")
+  }
 })
 
 
