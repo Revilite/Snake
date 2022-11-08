@@ -13,7 +13,7 @@ let rightInterval;
 const moveUp = () => {
   //9 X 9 gameboard
   if (total == 81) {
-    if (activeCell - 9 < 0) {
+    if (activeCell - 9 < 0 || board.children[activeCell - 9].classList == "cell tail") {
       //side of board detection
 
 
@@ -63,7 +63,7 @@ const moveUp = () => {
 
   // 15 X 15 gameboard
   else if (total == 225) {
-    if (activeCell - 15 < 0) {
+    if (activeCell - 15 < 0 || board.children[activeCell - 15].classList == "cell tail") {
 
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
@@ -72,7 +72,7 @@ const moveUp = () => {
         tail.pop();
       }
       tailLength = 3;
-      
+
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((15 * 15) / 2)
       board.children[activeCell].classList.add("head")
@@ -108,7 +108,7 @@ const moveUp = () => {
 
   else if (total == 441) {
 
-    if (activeCell - 21 < 0) {
+    if (activeCell - 21 < 0 || board.children[activeCell - 21].classList == "cell tail") {
 
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
@@ -154,7 +154,7 @@ const moveUp = () => {
 
 const moveDown = () => {
   if (total == 81) {
-    if (activeCell + 9 > total) {
+    if (activeCell + 9 > total || board.children[activeCell + 9].classList == "cell tail") {
 
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
@@ -195,7 +195,7 @@ const moveDown = () => {
     };
   }
   else if (total == 225) {
-    if (activeCell + 15 > total) {
+    if (activeCell + 15 > total || board.children[activeCell + 15].classList == "cell tail") {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
@@ -234,7 +234,7 @@ const moveDown = () => {
 
   }
   else if (total == 441) {
-    if (activeCell + 21 > total) {
+    if (activeCell + 21 > total || board.children[activeCell + 21].classList == "cell tail") {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
@@ -276,7 +276,7 @@ const moveDown = () => {
 
 const moveLeft = () => {
   if (total == 81) {
-    if (activeCell % 9 == 0) {
+    if (activeCell % 9 == 0 || board.children[activeCell - 1].classList == "cell tail") {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
@@ -315,7 +315,7 @@ const moveLeft = () => {
     }
   }
   else if (total == 225) {
-    if (activeCell % 15 == 0) {
+    if (activeCell % 15 == 0 || board.children[activeCell - 1].classList == "cell tail") {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
@@ -356,7 +356,7 @@ const moveLeft = () => {
   }
 
   else if (total == 441) {
-    if (activeCell % 21 == 0) {
+    if (activeCell % 21 == 0 || board.children[activeCell - 1].classList == "cell tail") {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
@@ -398,7 +398,7 @@ const moveLeft = () => {
 
 const moveRight = () => {
   if (total == 81) {
-    if (activeCell % 9 == 8) {
+    if (activeCell % 9 == 8 || board.children[activeCell + 1].classList == "cell tail") {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
@@ -438,7 +438,7 @@ const moveRight = () => {
     }
   }
   else if (total == 225) {
-    if (activeCell % 15 == 14) {
+    if (activeCell % 15 == 14 || board.children[activeCell + 1].classList == "cell tail") {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
@@ -478,7 +478,7 @@ const moveRight = () => {
     }
   }
   else if (total == 441) {
-    if (activeCell % 21 == 20) {
+    if (activeCell % 21 == 20 || board.children[activeCell + 1].classList == "cell tail") {
       for (let i = 0; i < total; i++) {
         board.children[i].classList.remove("tail")
       }
