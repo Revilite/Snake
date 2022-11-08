@@ -25,4 +25,23 @@ const spawnFood = (num) => {
   }
 }
 
+const eatenFood = () => {
+  let randomPlacement = Math.floor(Math.random() * total);
+  if(randomPlacement == activeCell){
+    randomPlacement = Math.floor(Math.random() * total)
+  }
+  const highScore = localStorage.getItem("highScore")
+
+  board.children[randomPlacement].classList.add("food");
+  score += 1;
+
+  if(score > highScore){
+    localStorage.setItem("highScore", score);
+  }
+
+
+  scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
+
+}
+
 spawnFood(3);

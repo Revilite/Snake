@@ -8,16 +8,19 @@
     <title>Snake Game</title>
   </head>
   <body>
+    <h1 id="title"> <i class="fa-solid fa-staff-snake"></i>Snake Game</h1>
+    <div id="scoreBoard"></div>
     <div id="gameBoard"></div>
-
+    
     <div id="buttons">
-      <button id="grid9" onClick="makeGrid(9, 9)">9 X 9</button>
-      <button id="grid15" onClick="makeGrid(15, 15)">15 X 15</button>
-      <button id="grid21" onClick="makeGrid(21, 21)">21 X 21</button>
+      <button id="grid9" onClick="makeGrid(9, 9); spawnFood(3)">9 X 9</button>
+      <button id="grid15" onClick="makeGrid(15, 15); spawnFood(5)">15 X 15</button>
+      <button id="grid21" onClick="makeGrid(21, 21); spawnFood(7)">21 X 21</button>
       <button onClick="clearGrid()">Remove Grid</button>
     </div>
   </body>
   <script src="./scripts/board.js"></script>
   <script src="./scripts/movement.js"></script>
   <script src="./scripts/food.js"></script>
+  <script src="https://kit.fontawesome.com/5a9f48c8be.js" crossorigin="anonymous"></script>
 </html>

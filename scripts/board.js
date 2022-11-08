@@ -1,10 +1,13 @@
 const board = document.querySelector("#gameBoard");
+const scoreBoard = document.querySelector("#scoreBoard")
 let activeCell = parseInt((9 * 9) / 2);
 let total;
+let score = 0;
 
 //Dynamic creation of game board
 
 const makeGrid = (rows, cols) => {
+  scoreBoard.innerText = `HighScore: ${localStorage.getItem("highScore")}  Score: ${score}`
   board.style.setProperty('--grid-rows', rows);
   board.style.setProperty('--grid-cols', cols);
 
@@ -20,7 +23,6 @@ const makeGrid = (rows, cols) => {
     if (cell.innerText == centerInt) {
       cell.classList.add("head")
     }
-
   }
 }
 const hightlight = (e) => {

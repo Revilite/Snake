@@ -33,12 +33,29 @@ html {
   background-color: greenyellow;
 }
 
+#title {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: bolder;
+  font-size: 42px;
+}
+
+#scoreBoard {
+  display: flex;
+  justify-content: center;
+  padding: 18px;
+  color: white;
+  font-size: 28px;
+  font-weight: bolder;
+}
+
 #gameBoard {
   display: grid;
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   margin: auto;
-  margin-top: 10vh;
+  margin-top: 4vh;
   width: 650px;
   height: 650px;
   background-color: #343536;

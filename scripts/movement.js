@@ -1,6 +1,8 @@
 //Board declared in board.js
 const all = document.querySelector("body");
 
+// add tail to array then dynamically change
+
 let upInterval;
 let downInterval;
 let leftInterval;
@@ -11,6 +13,7 @@ const moveUp = () => {
   //9 X 9 gameboard
   if (total == 81) {
     if (activeCell - 9 < 0) {
+      //side of board detection
       board.children[activeCell].classList.remove("head")
       activeCell = parseInt((9 * 9) / 2)
       board.children[activeCell].classList.add("head")
@@ -18,13 +21,16 @@ const moveUp = () => {
       spawnFood(3);
     }
     else {
+      //movement
       board.children[activeCell].classList.remove("head")
-
       activeCell -= 9;
       board.children[activeCell].classList.add("head")
+
+
       //food detection
       if(board.children[activeCell].classList.value == "cell food head"){
         board.children[activeCell].classList.remove("food");
+        eatenFood();
       }
     }
   }
@@ -36,12 +42,17 @@ const moveUp = () => {
       activeCell = parseInt((15 * 15) / 2)
       board.children[activeCell].classList.add("head")
       clearInterval(upInterval)
-      spawnFood(3);
+      spawnFood(5);
     }
 
     board.children[activeCell].classList.remove("head");
     activeCell -= 15;
     board.children[activeCell].classList.add("head")
+
+    if(board.children[activeCell].classList.value == "cell food head"){
+      board.children[activeCell].classList.remove("food");
+      eatenFood();
+    }
   }
 
   //21 X 21 gameboard
@@ -54,13 +65,18 @@ const moveUp = () => {
       activeCell = parseInt((21 * 21) / 2)
       board.children[activeCell].classList.add("head")
       clearInterval(upInterval)
-      spawnFood(3);
+      spawnFood(7);
     }
     else {
       board.children[activeCell].classList.remove("head");
 
       activeCell -= 21;
       board.children[activeCell].classList.add("head")
+
+      if(board.children[activeCell].classList.value == "cell food head"){
+        board.children[activeCell].classList.remove("food");
+        eatenFood();
+      }
     }
   }
 }
@@ -81,6 +97,11 @@ const moveDown = () => {
 
       activeCell += 9;
       board.children[activeCell].classList.add("head")
+
+      if(board.children[activeCell].classList.value == "cell food head"){
+        board.children[activeCell].classList.remove("food");
+        eatenFood();
+      }
     };
   }
   else if (total == 225) {
@@ -89,12 +110,17 @@ const moveDown = () => {
       activeCell = parseInt((15 * 15) / 2);
       board.children[activeCell].classList.add("head")
       clearInterval(downInterval)
-      spawnFood(3);
+      spawnFood(5);
     }
     else {
       board.children[activeCell].classList.remove("head");
       activeCell += 15;
       board.children[activeCell].classList.add("head")
+
+      if(board.children[activeCell].classList.value == "cell food head"){
+        board.children[activeCell].classList.remove("food");
+        eatenFood();
+      }
     }
   }
   else if (total == 441) {
@@ -103,13 +129,18 @@ const moveDown = () => {
       activeCell = parseInt((21 * 21) / 2);
       board.children[activeCell].classList.add("head")
       clearInterval(downInterval)
-      spawnFood(3);
+      spawnFood(7);
     }
     else {
       board.children[activeCell].classList.remove("head");
 
       activeCell += 21;
       board.children[activeCell].classList.add("head");
+
+      if(board.children[activeCell].classList.value == "cell food head"){
+        board.children[activeCell].classList.remove("food");
+        eatenFood();
+      }
     }
   }
 }
@@ -128,6 +159,11 @@ const moveLeft = () => {
 
       activeCell -= 1;
       board.children[activeCell].classList.add("head");
+
+      if(board.children[activeCell].classList.value == "cell food head"){
+        board.children[activeCell].classList.remove("food");
+        eatenFood();
+      }
     }
   }
   else if (total == 225) {
@@ -136,13 +172,18 @@ const moveLeft = () => {
       activeCell = parseInt((15 * 15) / 2);
       board.children[activeCell].classList.add("head");
       clearInterval(leftInterval);
-      spawnFood(3);
+      spawnFood(5);
     }
     else {
       board.children[activeCell].classList.remove("head");
 
       activeCell -= 1;
       board.children[activeCell].classList.add("head");
+
+      if(board.children[activeCell].classList.value == "cell food head"){
+        board.children[activeCell].classList.remove("food");
+        eatenFood();
+      }
     }
   }
 
@@ -152,13 +193,18 @@ const moveLeft = () => {
       activeCell = parseInt((21 * 21) / 2);
       board.children[activeCell].classList.add("head");
       clearInterval(leftInterval);
-      spawnFood(3);
+      spawnFood(7);
     }
     else {
       board.children[activeCell].classList.remove("head");
 
       activeCell -= 1;
       board.children[activeCell].classList.add("head");
+
+      if(board.children[activeCell].classList.value == "cell food head"){
+        board.children[activeCell].classList.remove("food");
+        eatenFood();
+      }
     }
   }
 }
@@ -177,6 +223,11 @@ const moveRight = () => {
 
       activeCell += 1;
       board.children[activeCell].classList.add("head");
+
+      if(board.children[activeCell].classList.value == "cell food head"){
+        board.children[activeCell].classList.remove("food");
+        eatenFood();
+      }
     }
   }
   else if (total == 225) {
@@ -185,13 +236,18 @@ const moveRight = () => {
       activeCell = parseInt((15 * 15) / 2);
       board.children[activeCell].classList.add("head");
       clearInterval(rightInterval);
-      spawnFood(3);
+      spawnFood(5);
     }
     else {
       board.children[activeCell].classList.remove("head");
 
       activeCell += 1;
       board.children[activeCell].classList.add("head");
+
+      if(board.children[activeCell].classList.value == "cell food head"){
+        board.children[activeCell].classList.remove("food");
+        eatenFood();
+      }
     }
   }
   else if (total == 441){
@@ -200,13 +256,18 @@ const moveRight = () => {
       activeCell = parseInt((21 * 21) / 2);
       board.children[activeCell].classList.add("head");
       clearInterval(rightInterval);
-      spawnFood(3);
+      spawnFood(7);
     }
 
     board.children[activeCell].classList.remove("head");
     
     activeCell += 1;
     board.children[activeCell].classList.add("head");
+
+       if(board.children[activeCell].classList.value == "cell food head"){
+        board.children[activeCell].classList.remove("food");
+        eatenFood();
+      }
   }
 }
 
